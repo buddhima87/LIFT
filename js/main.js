@@ -159,8 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Collect form data
       const formData = new FormData(contactForm);
 
-      // Submit via Fetch API to avoid redirect
-      fetch(contactForm.action, {
+      // Submit via Fetch API to FormSubmit.co AJAX endpoint
+      fetch("https://formsubmit.co/ajax/liftfitnesslk@gmail.com", {
         method: 'POST',
         body: formData,
         headers: {
