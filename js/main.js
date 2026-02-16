@@ -146,59 +146,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Contact Form (FormSubmit.co) ----
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    let isSubmitting = false;
 
+    contactForm.addEventListener('submit', () => {
+      isSubmitting = true;
       const btn = contactForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-
-      // Visual feedback: Sending...
       btn.textContent = '⏳ Sending...';
+      btn.style.background = '#eab308'; // optional: change to yellow/warning color while sending
       btn.disabled = true;
-
-      // Collect form data
-      const formData = new FormData(contactForm);
-
-      // Submit via Fetch API to FormSubmit.co AJAX endpoint
-      fetch("https://formsubmit.co/ajax/liftfitnesslk@gmail.com", {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-        .then(response => {
-          if (response.ok) {
-            // Success Feedback
-            btn.textContent = '✓ Message Sent!';
-            btn.style.background = '#22c55e';
-            btn.style.boxShadow = '0 4px 20px rgba(34, 197, 94, 0.3)';
-            contactForm.reset();
-          } else {
-            // Error Feedback
-            alert('Oops! There was a problem sending your message. Please try again.');
-            btn.textContent = originalText;
-          }
-        })
-        .catch(error => {
-          // Network Error
-          alert('Oops! There was a problem sending your message. Please check your internet connection.');
-          btn.textContent = originalText;
-        })
-        .finally(() => {
-          // Reset button after 3 seconds if success
-          if (btn.textContent === '✓ Message Sent!') {
-            setTimeout(() => {
-              btn.textContent = originalText;
-              btn.style.background = '';
-              btn.style.boxShadow = '';
-              btn.disabled = false;
-            }, 3000);
-          } else {
-            btn.disabled = false;
-          }
-        });
     });
+
+    const hiddenIframe = document.querySelector('iframe[name="hiddenFrame"]');
+    if (hiddenIframe) {
+      hiddenIframe.addEventListener('load', () => {
+        if (isSubmitting) {
+          const btn = contactForm.querySelector('button[type="submit"]');
+          btn.textContent = '✓ Message Sent!';
+          btn.style.background = '#22c55e';
+          btn.style.boxShadow = '0 4px 20px rgba(34, 197, 94, 0.3)';
+
+          contactForm.reset();
+          isSubmitting = false;
+
+          // Reset button after 3 seconds
+          setTimeout(() => {
+            btn.textContent = 'Send Message →';
+            btn.style.background = '';
+            btn.style.boxShadow = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      });
+    }
   }
 
   // ---- Smooth scroll for anchor links ----
