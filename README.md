@@ -60,7 +60,9 @@ The contact form uses **FormSubmit.co** (free, no backend needed).
 
 > **First-time setup:** After the first form submission, FormSubmit will send a confirmation email to `liftfitnesslk@gmail.com`. Click the link to activate. All future submissions will be delivered automatically.
 
-⚠️ The form requires the site to be served via a web server (not `file://`). Use **VS Code Live Server** for local testing, or deploy to any hosting provider.
+⚠️ The form requires the site to be served via a web server (not `file://`).
+
+> **Developer Note:** The form uses a hidden iframe (`target="hiddenFrame"`) to handle submissions. This bypasses strict CORS policies on static hosting (like GitHub Pages) that typically block direct AJAX requests to FormSubmit.co.
 
 ## 🛠️ Tech Stack
 
