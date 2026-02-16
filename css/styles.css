@@ -1016,10 +1016,8 @@ p {
 }
 
 .hours-day {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 6px;
   color: var(--dark);
 }
@@ -1339,6 +1337,9 @@ p {
   background: var(--off-white);
   border-radius: var(--radius-md);
   transition: all var(--transition-mid);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .contact-info-card:hover {
@@ -1360,10 +1361,11 @@ p {
 }
 
 .contact-info-label {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--mid-gray);
+  letter-spacing: 0.5px;
+  color: var(--dark);
+  font-weight: 700;
   margin-bottom: 4px;
 }
 

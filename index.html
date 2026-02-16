@@ -629,7 +629,7 @@
           <span class="section-label">Get In Touch</span>
           <h2 class="section-title" style="margin-bottom:30px;">Contact <span class="text-red">Us</span></h2>
           <div class="contact-info-cards">
-            <div class="contact-info-card">
+            <a href="https://maps.app.goo.gl/1HtYkZANgo9qPUoJ8" class="contact-info-card" target="_blank">
               <div class="contact-info-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -640,8 +640,8 @@
                 <div class="contact-info-label">Kottawa Branch</div>
                 <div class="contact-info-value">35/1, High Level Road, Kottawa</div>
               </div>
-            </div>
-            <div class="contact-info-card">
+            </a>
+            <a href="https://maps.app.goo.gl/TQkAx1ZkqqagnM1A9" class="contact-info-card" target="_blank">
               <div class="contact-info-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -652,7 +652,7 @@
                 <div class="contact-info-label">Rathmalana Branch</div>
                 <div class="contact-info-value">No:440, Galle Road, Rathmalana</div>
               </div>
-            </div>
+            </a>
             <div class="contact-info-card">
               <div class="contact-info-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -744,7 +744,8 @@
               </div>
               <div class="form-group">
                 <label for="contactPhone">Phone</label>
-                <input type="tel" id="contactPhone" name="phone" placeholder="07X XXX XXXX" required>
+                <input type="tel" id="contactPhone" name="phone" placeholder="07X XXX XXXX" pattern="[0-9]{10}"
+                  title="Please enter a valid 10-digit phone number (e.g., 0771234567)" required>
               </div>
             </div>
             <div class="form-group">

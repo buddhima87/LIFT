@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Contact Form (FormSubmit.co) ----
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', () => {
+    contactForm.addEventListener('submit', (e) => {
       // Visual feedback while form submits
       const btn = contactForm.querySelector('button[type="submit"]');
       btn.textContent = '✓ Sending...';
